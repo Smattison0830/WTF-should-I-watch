@@ -1,0 +1,31 @@
+
+<section class="jumbotron text-center" style="background-image: url(https://pyxis.nymag.com/v1/imgs/978/4d0/4b4779e1dcb86984abe55c08366f9babe7-13-empty-theater.2x.rhorizontal.w700.jpg)">
+   <div class="continer">
+    <h1 class="jumbotron-heading text-light"> Movie Lists</h1>
+    <p class="lead text-light"> Create movie lists to share with your friends or discover new movies.</p>
+    <p>
+      <%= link_to "Create a new list", new_list_path, class: "btn btn-primary my-2" %>
+    </p>
+  </div>
+</section>
+
+<div class="container mb-2 p-3">
+  <div class="banner">
+    <h1>Your lists</h1>
+  </div>
+</div>
+
+<div class="container ">
+  <div class="cards">
+    <% @lists.each do |list| %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+        <h3><%= link_to list.name, list_path(list) %></h3>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+
+
+

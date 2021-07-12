@@ -1,0 +1,46 @@
+<section class="jumbotron text-center" style="background-image: url(https://pyxis.nymag.com/v1/imgs/978/4d0/4b4779e1dcb86984abe55c08366f9babe7-13-empty-theater.2x.rhorizontal.w700.jpg)">
+   <div class="container">
+    <h1 class="jumbotron-heading text-light"> Movie Lists</h1>
+    <p class="lead text-light"> Create movie lists to share with your friends or discover new movies.</p>
+    <p>
+      <%= link_to "Create a new list", new_list_path, class: "btn btn-primary my-2" %>
+    </p>
+  </div>
+</section>
+
+<div class="album py-5 bg-light">
+        <div class="container">
+          <div class="d-flex justify-content-between">
+    <h1>Your movies for <%= @list.name %></h1>
+     <p> <%= link_to "Add a movie to your list", new_list_bookmark_path(@list), class: "btn btn-primary my-2" %></p>
+  </div>
+          <div class="row">
+            <% ((@list.movies).shuffle).each do |movie| %>
+              <div class="col-md-4 ">
+                <div class="card mb-4 box-shadow  ">
+                  <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumb" alt="Thumb [100%x225]" style="height: 225px; width: 100%; display: block;" src="<%= movie.poster_url %>" data-holder-rendered="true">
+                  <div class="card-body">
+                    <div class="truncate">
+                       <strong><%= movie.title %> <span class="text-muted font-weight-normal">• <%= movie.rating %> <i class="fas fa-star star-yellow"></i></span></strong>
+                    <small class="text-muted"> <%= movie.overview %></small>
+                    </div>
+
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="btn-group">
+                        <button type="button" class="btn btn-sm btn-outline-secondary">Details</button>
+                        <button type="button" class="btn btn-sm btn-outline-secondary">Delete</button>
+                      </div>
+                      <small class="text-muted"><%= movie.rating %></small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
