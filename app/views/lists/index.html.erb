@@ -18,12 +18,13 @@
 <div class="container ">
   <div class="cards">
     <% @lists.each do |list| %>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+      <div class="card-category center-img" style="<%="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(http://res.cloudinary.com/dwaziyfd6/image/upload/c_fill,h_300,w_400/#{list.photo.key}"%>)" >
         <h3><%= link_to list.name, list_path(list) %></h3>
       </div>
     <% end %>
   </div>
 </div>
+
 
 
 
