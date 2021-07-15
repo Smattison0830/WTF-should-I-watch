@@ -1,7 +1,6 @@
-
 <section class="jumbotron text-center" style="background-image: url(https://pyxis.nymag.com/v1/imgs/978/4d0/4b4779e1dcb86984abe55c08366f9babe7-13-empty-theater.2x.rhorizontal.w700.jpg)">
    <div class="continer">
-    <h1 class="jumbotron-heading text-light"> Movie Lists</h1>
+    <h1 class="jumbotron-heading text-light"> WTF Should I Watch?</h1>
     <p class="lead text-light"> Create movie lists to share with your friends or discover new movies.</p>
     <p>
       <%= link_to "Create a new list", new_list_path, class: "btn btn-primary my-2" %>
@@ -15,16 +14,28 @@
   </div>
 </div>
 
-<div class="container ">
+<div class="container">
   <div class="cards">
     <% @lists.each do |list| %>
-      <div class="card-category center-img" style="<%="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(http://res.cloudinary.com/dwaziyfd6/image/upload/c_fill,h_300,w_400/#{list.photo.key}"%>)" >
-        <h3><%= link_to list.name, list_path(list) %></h3>
-      </div>
+      <% if list.photo.attached? %>
+      <div class="movie-card">
+        <%= link_to list_path(list), method: :delete, data: { confirm: "Sure or what?"} do %>
+        <div class="movie-card-img">
+           <h2>☠️</h2>
+        </div>
+        <div class="card-category center-img" style="<%="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(http://res.cloudinary.com/dwaziyfd6/image/upload/c_fill,h_300,w_400/#{list.photo.key}"%>)" >
+          <h3><%= link_to list.name, list_path(list)%></h3>
+          </div>
+            <% end %>
+        </div>
+      <% else %>
+        <div class="card-category center-img" style="background-image: url(https://s.wsj.net/public/resources/images/ON-CE927_moviet_B620_20170714200426.jpg)">
+          <h3><%= link_to list.name, list_path(list)%></h3>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>
-
 
 
 

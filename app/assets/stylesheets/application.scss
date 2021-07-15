@@ -100,3 +100,17 @@ ul {
 .center-img {
   background-size: cover;
 }
+
+.movie-card {
+  position: relative;
+}
+.movie-card-img {
+    color: rgba(255,255,255,0.8);
+    position: absolute;
+    right: 0px;
+    margin: 10px;
+}
+
+.album {
+  min-height: 700px;
+}

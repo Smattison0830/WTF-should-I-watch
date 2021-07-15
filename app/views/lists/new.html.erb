@@ -1,5 +1,5 @@
 <%= simple_form_for @list do |f| %>
-  <%= f.input :name %>
-  <%= f.input :photo, as: :file %>
+  <%= f.input :name, placeholder: "List Name" %>
+  <%= f.input :photo, as: :file, label: "Upload a cover image for your list" %>
   <%= f.submit "Submit list", class: "btn btn-primary" %>
 <% end %>
